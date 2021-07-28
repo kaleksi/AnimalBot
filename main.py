@@ -1,9 +1,16 @@
+#Created 7/27/2021 "727 day!"
+#Last modified 7/28/2021
+
+#This bot is intended for use in a personal discord server with my friends
+#As such, it is a complete mess of stupid features and horrible code :^)
+
 import discord
 import requests
 from stayinalive import stayinalive
 
 client = discord.Client()
 
+#log in
 @client.event
 async def on_ready():
   print("We have logged in as {0.user}".format(client))
@@ -35,5 +42,28 @@ async def on_message(message):
     await message.channel.send("if Jeff Benzos put all his money up his ass he would need a really big as s")
     return
 
+  if message.content.startswith("!smug"):
+    response = requests.get("https://api.waifu.pics/sfw/smug")
+    smug = response.json()
+    await message.channel.send(smug["url"])
+
+  if message.content.startswith("!bonk"):
+    response = requests.get("https://api.waifu.pics/sfw/bonk")
+    smug = response.json()
+    await message.channel.send(smug["url"])
+
+  if message.content.startswith("!cringe"):
+    response = requests.get("https://api.waifu.pics/sfw/cringe")
+    smug = response.json()
+    await message.channel.send(smug["url"])
+
+  if message.content.startswith("!bully"):
+    response = requests.get("https://api.waifu.pics/sfw/bully")
+    smug = response.json()
+    await message.channel.send(smug["url"])
+
 stayinalive()
+
+#Shouldn't put this here but env wasn't working YOLO
 client.run("ODY5NDY1ODYzMjM1OTY5MDg0.YP-nLw.Z9oY8AGL775k-DCgRTad956IAxg")
+
