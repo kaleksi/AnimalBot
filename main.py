@@ -46,24 +46,34 @@ async def on_message(message):
     response = requests.get("https://api.waifu.pics/sfw/smug")
     smug = response.json()
     await message.channel.send(smug["url"])
+    return
 
   if message.content.startswith("!bonk"):
     response = requests.get("https://api.waifu.pics/sfw/bonk")
     smug = response.json()
     await message.channel.send(smug["url"])
+    return
 
   if message.content.startswith("!cringe"):
     response = requests.get("https://api.waifu.pics/sfw/cringe")
     smug = response.json()
     await message.channel.send(smug["url"])
+    return
 
   if message.content.startswith("!bully"):
     response = requests.get("https://api.waifu.pics/sfw/bully")
     smug = response.json()
     await message.channel.send(smug["url"])
+    return
+
+
+  #LISTS BOT COMMANDS
+  if message.content.startswith("!animalbot"):
+    await message.channel.send("Currently available commands are: !fox, !cat, !dog, !jeff, !smug, !bonk, !cringe, !bully, !animalbot")
+    return
 
 stayinalive()
 
 #Shouldn't put this here but env wasn't working YOLO
-client.run("ODY5NDY1ODYzMjM1OTY5MDg0.YP-nLw.Z9oY8AGL775k-DCgRTad956IAxg")
+client.run("ODY5NDY1ODYzMjM1OTY5MDg0.YP-nLw.uEKqrhXEBkOjGzrw7gKy37bwkTU")
 
